@@ -178,26 +178,26 @@ foreach my $file (@files) {
     # the base pairs (both upper and lower case, just in case), and then call
     # the length function on the resulting string.
 
-    # my $AdeninePairsSeq = $text;
-    # $AdeninePairsSeq =~ s/[^Aa]//gsx;
-    # my $AdeninePairs = length($AdeninePairsSeq);
+    print "\n";
 
-    # my $CytosinePairsSeq = $text;
-    # $CytosinePairsSeq =~ s/[^Cc]//gsx;
-    # my $CytosinePairs = length($CytosinePairsSeq);
-
-    # my $GuaninePairsSeq = $text;
-    # $GuaninePairsSeq =~ s/[^Gg]//gsx;
-    # my $GuaninePairs = length($GuaninePairsSeq);
-
-    # my $ThyminePairsSeq = $text;
-    # $ThyminePairsSeq =~ s/[^Tt]//gsx;
-    # my $ThyminePairs = length($ThyminePairsSeq);
-    
     my $AdeninePairs  = ($DNASequence =~ tr/A//);
     my $CytosinePairs = ($DNASequence =~ tr/C//);
     my $GuaninePairs  = ($DNASequence =~ tr/G//);
     my $ThyminePairs  = ($DNASequence =~ tr/T//);
+
+    print "Adenine Pairs: $AdeninePairs\n";
+    print "Cytosine Pairs: $CytosinePairs\n";
+    print "Guanine Pairs: $GuaninePairs\n";
+    print "Thymine Pairs: $ThyminePairs\n";
+
+    print "\n";
+
+    $AdeninePairs = Bio::CountMonomer('A', $DNASequence);
+    $CytosinePairs = Bio::CountMonomer('C', $DNASequence);
+    $GuaninePairs = Bio::CountMonomer('G', $DNASequence);
+    $ThyminePairs = Bio::CountMonomer('T', $DNASequence);
+
+    print "\n";
 
     print "Adenine Pairs: $AdeninePairs\n";
     print "Cytosine Pairs: $CytosinePairs\n";
